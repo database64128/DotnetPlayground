@@ -4,8 +4,13 @@ using System.CommandLine.Invocation;
 using System.Text;
 
 var pluginOption = new Option<string>("--plugin");
+
 var pluginVersionOption = new Option<string>("--plugin-version");
-var pluginWhateverOption = new Option<string[]>("--plugin-whatever");
+
+var pluginWhateverOption = new Option<string[]>("--plugin-whatever")
+{
+    AllowMultipleArgumentsPerToken = true,
+};
 
 var rootCommand = new RootCommand("")
 {
