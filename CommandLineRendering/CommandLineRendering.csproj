@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.CommandLine.Rendering" Version="0.3.0-alpha.21480.1" />
+    <PackageReference Include="System.CommandLine.Rendering" Version="0.3.0-alpha.21504.1" />
   </ItemGroup>
 
 </Project>
