@@ -3,9 +3,9 @@ using System.CommandLine;
 using System.CommandLine.Invocation;
 using System.Text;
 
-var pluginOption = new Option<string>("--plugin");
+var pluginOption = new Option<string?>("--plugin");
 
-var pluginVersionOption = new Option<string>("--plugin-version");
+var pluginVersionOption = new Option<string?>("--plugin-version");
 
 var pluginWhateverOption = new Option<string[]>("--plugin-whatever")
 {
@@ -24,12 +24,12 @@ var rootCommand = new RootCommand("")
     interactiveCommand,
 };
 
-rootCommand.Handler = CommandHandler.Create<string, string, string, string[]>(
-    (string plugin, string pluginVersion, string pluginOptions, string[] pluginWhatever) =>
+rootCommand.Handler = CommandHandler.Create<string?, string?, string?, string[]>(
+    (string? plugin, string? pluginVersion, string? pluginOptions, string[] pluginWhatever) =>
     {
-        Console.WriteLine($"Plugin: {plugin}");
-        Console.WriteLine($"Plugin Version: {pluginVersion}");
-        Console.WriteLine($"Plugin Whatever: {pluginWhatever.Length}");
+        Console.WriteLine($"Plugin: {plugin} (null: {plugin is null})");
+        Console.WriteLine($"Plugin Version: {pluginVersion} (null: {pluginVersion is null})");
+        Console.WriteLine($"Plugin Whatever: {pluginWhatever.Length} (null: {pluginWhatever is null})");
     });
 
 interactiveCommand.Handler = CommandHandler.Create(
