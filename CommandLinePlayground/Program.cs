@@ -2,6 +2,7 @@
 using System.CommandLine;
 using System.CommandLine.Invocation;
 using System.Text;
+using System.Threading.Tasks;
 
 var pluginOption = new Option<string?>("--plugin");
 
@@ -24,12 +25,16 @@ var rootCommand = new RootCommand("")
     interactiveCommand,
 };
 
-rootCommand.Handler = CommandHandler.Create<string?, string?, string?, string[]>(
-    (string? plugin, string? pluginVersion, string? pluginOptions, string[] pluginWhatever) =>
+rootCommand.Handler = CommandHandler.Create(
+    pluginOption,
+    pluginVersionOption,
+    pluginWhateverOption,
+    (string? plugin, string? pluginVersion, string[] pluginWhatever) =>
     {
         Console.WriteLine($"Plugin: {plugin} (null: {plugin is null})");
         Console.WriteLine($"Plugin Version: {pluginVersion} (null: {pluginVersion is null})");
         Console.WriteLine($"Plugin Whatever: {pluginWhatever.Length} (null: {pluginWhatever is null})");
+        return Task.CompletedTask;
     });
 
 interactiveCommand.Handler = CommandHandler.Create(
