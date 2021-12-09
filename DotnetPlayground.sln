@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandLinePlayground", "Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BenchmarkParsingStringIntoOtherTypes", "BenchmarkParsingStringIntoOtherTypes\BenchmarkParsingStringIntoOtherTypes.csproj", "{61942260-04D4-4DFE-B3C9-9FF5BC29C939}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BenchmarkStringCreateVersusStringBuilder", "BenchmarkStringCreateVersusStringBuilder\BenchmarkStringCreateVersusStringBuilder.csproj", "{208BCB32-6C4C-4CB2-A6B8-99A97B395BE8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{61942260-04D4-4DFE-B3C9-9FF5BC29C939}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61942260-04D4-4DFE-B3C9-9FF5BC29C939}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61942260-04D4-4DFE-B3C9-9FF5BC29C939}.Release|Any CPU.Build.0 = Release|Any CPU
+		{208BCB32-6C4C-4CB2-A6B8-99A97B395BE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{208BCB32-6C4C-4CB2-A6B8-99A97B395BE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{208BCB32-6C4C-4CB2-A6B8-99A97B395BE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{208BCB32-6C4C-4CB2-A6B8-99A97B395BE8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
