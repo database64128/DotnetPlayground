@@ -10,10 +10,9 @@ namespace CommandLineRendering
     {
         private static Task Main(string[] args)
         {
-            var rootCommand = new RootCommand("Rendering test.")
-            {
-                Handler = CommandHandler.Create<InvocationContext>(Render)
-            };
+            var rootCommand = new RootCommand("Rendering test.");
+
+            rootCommand.SetHandler<InvocationContext>(Render);
 
             return rootCommand.InvokeAsync(args);
         }

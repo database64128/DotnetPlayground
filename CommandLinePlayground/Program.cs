@@ -1,7 +1,7 @@
 ﻿using System;
 using System.CommandLine;
-using System.CommandLine.Invocation;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 var pluginOption = new Option<string?>("--plugin");
@@ -25,19 +25,20 @@ var rootCommand = new RootCommand("")
     interactiveCommand,
 };
 
-rootCommand.Handler = CommandHandler.Create(
-    pluginOption,
-    pluginVersionOption,
-    pluginWhateverOption,
-    (string? plugin, string? pluginVersion, string[] pluginWhatever) =>
+rootCommand.SetHandler(
+    (string? plugin, string? pluginVersion, string[] pluginWhatever, CancellationToken cancellationToken) =>
     {
         Console.WriteLine($"Plugin: {plugin} (null: {plugin is null})");
         Console.WriteLine($"Plugin Version: {pluginVersion} (null: {pluginVersion is null})");
         Console.WriteLine($"Plugin Whatever: {pluginWhatever.Length} (null: {pluginWhatever is null})");
+        Console.WriteLine($"Is Cancellation Requested: {cancellationToken.IsCancellationRequested}");
         return Task.CompletedTask;
-    });
+    },
+    pluginOption,
+    pluginVersionOption,
+    pluginWhateverOption);
 
-interactiveCommand.Handler = CommandHandler.Create(
+interactiveCommand.SetHandler(
     async () =>
     {
         while (true)

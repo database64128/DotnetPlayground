@@ -1,6 +1,5 @@
 ﻿using System;
 using System.CommandLine;
-using System.CommandLine.Invocation;
 using System.IO;
 using System.Text;
 using System.Text.Encodings.Web;
@@ -21,18 +20,15 @@ namespace TrimUsingFileStream
                 Id = Guid.NewGuid().ToString(),
                 Name = s,
             };
-            var rootCommand = new RootCommand(s)
+            var rootCommand = new RootCommand(s);
+            rootCommand.SetHandler(async (CancellationToken cancellationToken) =>
             {
-                Handler = CommandHandler.Create<CancellationToken>(
-                    async (CancellationToken cancellationToken) =>
-                    {
-                        await using var afs = new FileStream("test-trim-await-using-fs.json", FileMode.Create);
-                        await JsonSerializer.SerializeAsync(afs, testObj, cancellationToken: cancellationToken);
+                await using var afs = new FileStream("test-trim-await-using-fs.json", FileMode.Create);
+                await JsonSerializer.SerializeAsync(afs, testObj, cancellationToken: cancellationToken);
 
-                        using var sfs = new FileStream("test-trim-using-fs.json", FileMode.Create);
-                        await JsonSerializer.SerializeAsync(sfs, testObj, cancellationToken: cancellationToken);
-                    }),
-            };
+                using var sfs = new FileStream("test-trim-using-fs.json", FileMode.Create);
+                await JsonSerializer.SerializeAsync(sfs, testObj, cancellationToken: cancellationToken);
+            });
 
             Console.OutputEncoding = Encoding.UTF8;
             return rootCommand.InvokeAsync(args);
