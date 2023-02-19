@@ -7,7 +7,6 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
-using SystemCommandLineUtils;
 
 namespace TrimUsingFileStream
 {
@@ -21,7 +20,6 @@ namespace TrimUsingFileStream
                 Id = Guid.NewGuid().ToString(),
                 Name = s,
             };
-            var cancellationTokenBinder = new CancellationTokenBinder();
             var rootCommand = new RootCommand(s);
             rootCommand.SetHandler(async (CancellationToken cancellationToken) =>
             {
@@ -30,7 +28,7 @@ namespace TrimUsingFileStream
 
                 using var sfs = new FileStream("test-trim-using-fs.json", FileMode.Create);
                 await JsonSerializer.SerializeAsync(sfs, testObj, cancellationToken: cancellationToken);
-            }, cancellationTokenBinder);
+            });
 
             Console.OutputEncoding = Encoding.UTF8;
             return rootCommand.InvokeAsync(args);

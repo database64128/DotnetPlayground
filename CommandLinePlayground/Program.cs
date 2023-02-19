@@ -3,7 +3,6 @@ using System.CommandLine;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using SystemCommandLineUtils;
 
 var pluginOption = new Option<string?>("--plugin");
 
@@ -13,8 +12,6 @@ var pluginWhateverOption = new Option<string[]>("--plugin-whatever")
 {
     AllowMultipleArgumentsPerToken = true,
 };
-
-var cancellationTokenBinder = new CancellationTokenBinder();
 
 var interactiveCommand = new Command("interactive", "Enter interactive mode (REPL). Exit with 'exit' or 'quit'.");
 interactiveCommand.AddAlias("i");
@@ -39,8 +36,7 @@ rootCommand.SetHandler(
     },
     pluginOption,
     pluginVersionOption,
-    pluginWhateverOption,
-    cancellationTokenBinder);
+    pluginWhateverOption);
 
 interactiveCommand.SetHandler(
     async () =>

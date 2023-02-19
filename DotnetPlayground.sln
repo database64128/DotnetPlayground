@@ -25,8 +25,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BenchmarkParsingStringIntoO
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BenchmarkStringCreateVersusStringBuilder", "BenchmarkStringCreateVersusStringBuilder\BenchmarkStringCreateVersusStringBuilder.csproj", "{208BCB32-6C4C-4CB2-A6B8-99A97B395BE8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemCommandLineUtils", "SystemCommandLineUtils\SystemCommandLineUtils.csproj", "{1D23207B-6571-4A96-AB05-BD4283126AEC}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BenchmarkNumerics", "BenchmarkNumerics\BenchmarkNumerics.csproj", "{4852DD7C-BF74-4E35-A448-584109A5CFD9}"
 EndProject
 Global
@@ -79,10 +77,6 @@ Global
 		{208BCB32-6C4C-4CB2-A6B8-99A97B395BE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{208BCB32-6C4C-4CB2-A6B8-99A97B395BE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{208BCB32-6C4C-4CB2-A6B8-99A97B395BE8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1D23207B-6571-4A96-AB05-BD4283126AEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1D23207B-6571-4A96-AB05-BD4283126AEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1D23207B-6571-4A96-AB05-BD4283126AEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1D23207B-6571-4A96-AB05-BD4283126AEC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4852DD7C-BF74-4E35-A448-584109A5CFD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4852DD7C-BF74-4E35-A448-584109A5CFD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4852DD7C-BF74-4E35-A448-584109A5CFD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
