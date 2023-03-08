@@ -14,8 +14,8 @@ var pluginWhateverOption = new Option<string[]>("--plugin-whatever")
 };
 
 var interactiveCommand = new Command("interactive", "Enter interactive mode (REPL). Exit with 'exit' or 'quit'.");
-interactiveCommand.AddAlias("i");
-interactiveCommand.AddAlias("repl");
+interactiveCommand.Aliases.Add("i");
+interactiveCommand.Aliases.Add("repl");
 
 var rootCommand = new RootCommand("")
 {
