@@ -1,5 +1,6 @@
 ﻿using System;
 using System.CommandLine;
+using System.CommandLine.Invocation;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -25,21 +26,23 @@ var rootCommand = new RootCommand("")
     interactiveCommand,
 };
 
-rootCommand.SetHandler(
-    (string? plugin, string? pluginVersion, string[] pluginWhatever, CancellationToken cancellationToken) =>
-    {
-        Console.WriteLine($"Plugin: {plugin} (null: {plugin is null})");
-        Console.WriteLine($"Plugin Version: {pluginVersion} (null: {pluginVersion is null})");
-        Console.WriteLine($"Plugin Whatever: {pluginWhatever.Length} (null: {pluginWhatever is null})");
-        Console.WriteLine($"Is Cancellation Requested: {cancellationToken.IsCancellationRequested}");
-        return Task.CompletedTask;
-    },
-    pluginOption,
-    pluginVersionOption,
-    pluginWhateverOption);
+rootCommand.SetHandler((InvocationContext invocationContext, CancellationToken cancellationToken) =>
+{
+    var parseResult = invocationContext.ParseResult;
+    var plugin = parseResult.GetValue(pluginOption);
+    var pluginVersion = parseResult.GetValue(pluginVersionOption);
+    var pluginWhatever = parseResult.GetValue(pluginWhateverOption);
+
+    Console.WriteLine($"Plugin: {plugin} (null: {plugin is null})");
+    Console.WriteLine($"Plugin Version: {pluginVersion} (null: {pluginVersion is null})");
+    Console.WriteLine($"Plugin Whatever: {pluginWhatever?.Length} (null: {pluginWhatever is null})");
+    Console.WriteLine($"Is Cancellation Requested: {cancellationToken.IsCancellationRequested}");
+
+    return Task.CompletedTask;
+});
 
 interactiveCommand.SetHandler(
-    async () =>
+    async (_, cancellationToken) =>
     {
         while (true)
         {
@@ -55,7 +58,7 @@ interactiveCommand.SetHandler(
                 continue;
             }
 
-            await rootCommand.InvokeAsync(inputLine);
+            await rootCommand.InvokeAsync(inputLine, cancellationToken: cancellationToken);
         }
     });
 

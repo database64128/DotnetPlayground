@@ -5,7 +5,6 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace TrimUsingFileStream
@@ -21,7 +20,7 @@ namespace TrimUsingFileStream
                 Name = s,
             };
             var rootCommand = new RootCommand(s);
-            rootCommand.SetHandler(async (CancellationToken cancellationToken) =>
+            rootCommand.SetHandler(async (_, cancellationToken) =>
             {
                 await using var afs = new FileStream("test-trim-await-using-fs.json", FileMode.Create);
                 await JsonSerializer.SerializeAsync(afs, testObj, cancellationToken: cancellationToken);
