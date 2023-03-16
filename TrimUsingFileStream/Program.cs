@@ -27,6 +27,8 @@ namespace TrimUsingFileStream
 
                 using var sfs = new FileStream("test-trim-using-fs.json", FileMode.Create);
                 await JsonSerializer.SerializeAsync(sfs, testObj, cancellationToken: cancellationToken);
+
+                return 0;
             });
 
             Console.OutputEncoding = Encoding.UTF8;

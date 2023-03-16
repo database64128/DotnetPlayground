@@ -38,7 +38,7 @@ rootCommand.SetHandler((InvocationContext invocationContext, CancellationToken c
     Console.WriteLine($"Plugin Whatever: {pluginWhatever?.Length} (null: {pluginWhatever is null})");
     Console.WriteLine($"Is Cancellation Requested: {cancellationToken.IsCancellationRequested}");
 
-    return Task.CompletedTask;
+    return Task.FromResult(0);
 });
 
 interactiveCommand.SetHandler(
@@ -60,6 +60,8 @@ interactiveCommand.SetHandler(
 
             await rootCommand.InvokeAsync(inputLine, cancellationToken: cancellationToken);
         }
+
+        return 0;
     });
 
 Console.OutputEncoding = Encoding.UTF8;
