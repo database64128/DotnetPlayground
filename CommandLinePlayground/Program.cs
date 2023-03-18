@@ -26,7 +26,7 @@ var rootCommand = new RootCommand("")
     interactiveCommand,
 };
 
-rootCommand.SetHandler((InvocationContext invocationContext, CancellationToken cancellationToken) =>
+rootCommand.SetAction((InvocationContext invocationContext, CancellationToken cancellationToken) =>
 {
     var parseResult = invocationContext.ParseResult;
     var plugin = parseResult.GetValue(pluginOption);
@@ -38,10 +38,10 @@ rootCommand.SetHandler((InvocationContext invocationContext, CancellationToken c
     Console.WriteLine($"Plugin Whatever: {pluginWhatever?.Length} (null: {pluginWhatever is null})");
     Console.WriteLine($"Is Cancellation Requested: {cancellationToken.IsCancellationRequested}");
 
-    return Task.FromResult(0);
+    return Task.CompletedTask;
 });
 
-interactiveCommand.SetHandler(
+interactiveCommand.SetAction(
     async (_, cancellationToken) =>
     {
         while (true)
@@ -60,8 +60,6 @@ interactiveCommand.SetHandler(
 
             await rootCommand.InvokeAsync(inputLine, cancellationToken: cancellationToken);
         }
-
-        return 0;
     });
 
 Console.OutputEncoding = Encoding.UTF8;

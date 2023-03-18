@@ -20,15 +20,13 @@ namespace TrimUsingFileStream
                 Name = s,
             };
             var rootCommand = new RootCommand(s);
-            rootCommand.SetHandler(async (_, cancellationToken) =>
+            rootCommand.SetAction(async (_, cancellationToken) =>
             {
                 await using var afs = new FileStream("test-trim-await-using-fs.json", FileMode.Create);
                 await JsonSerializer.SerializeAsync(afs, testObj, cancellationToken: cancellationToken);
 
                 using var sfs = new FileStream("test-trim-using-fs.json", FileMode.Create);
                 await JsonSerializer.SerializeAsync(sfs, testObj, cancellationToken: cancellationToken);
-
-                return 0;
             });
 
             Console.OutputEncoding = Encoding.UTF8;
