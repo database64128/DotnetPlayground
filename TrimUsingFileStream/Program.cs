@@ -30,7 +30,7 @@ namespace TrimUsingFileStream
             });
 
             Console.OutputEncoding = Encoding.UTF8;
-            return rootCommand.InvokeAsync(args);
+            return rootCommand.Parse(args).InvokeAsync();
         }
 
         public static readonly JsonSerializerOptions camelCaseJsonSerializerOptions = new()

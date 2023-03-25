@@ -58,9 +58,9 @@ interactiveCommand.SetAction(
                 continue;
             }
 
-            await rootCommand.InvokeAsync(inputLine, cancellationToken: cancellationToken);
+            await rootCommand.Parse(inputLine).InvokeAsync(cancellationToken);
         }
     });
 
 Console.OutputEncoding = Encoding.UTF8;
-await rootCommand.InvokeAsync(args);
+await rootCommand.Parse(args).InvokeAsync();
