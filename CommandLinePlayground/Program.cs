@@ -1,6 +1,5 @@
 ﻿using System;
 using System.CommandLine;
-using System.CommandLine.Invocation;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -26,9 +25,8 @@ var rootCommand = new RootCommand("")
     interactiveCommand,
 };
 
-rootCommand.SetAction((InvocationContext invocationContext, CancellationToken cancellationToken) =>
+rootCommand.SetAction((ParseResult parseResult, CancellationToken cancellationToken) =>
 {
-    var parseResult = invocationContext.ParseResult;
     var plugin = parseResult.GetValue(pluginOption);
     var pluginVersion = parseResult.GetValue(pluginVersionOption);
     var pluginWhatever = parseResult.GetValue(pluginWhateverOption);
