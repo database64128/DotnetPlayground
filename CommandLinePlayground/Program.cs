@@ -4,20 +4,20 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-var pluginOption = new Option<string?>("--plugin");
+var pluginOption = new CliOption<string?>("--plugin");
 
-var pluginVersionOption = new Option<string?>("--plugin-version");
+var pluginVersionOption = new CliOption<string?>("--plugin-version");
 
-var pluginWhateverOption = new Option<string[]>("--plugin-whatever")
+var pluginWhateverOption = new CliOption<string[]>("--plugin-whatever")
 {
     AllowMultipleArgumentsPerToken = true,
 };
 
-var interactiveCommand = new Command("interactive", "Enter interactive mode (REPL). Exit with 'exit' or 'quit'.");
+var interactiveCommand = new CliCommand("interactive", "Enter interactive mode (REPL). Exit with 'exit' or 'quit'.");
 interactiveCommand.Aliases.Add("i");
 interactiveCommand.Aliases.Add("repl");
 
-var rootCommand = new RootCommand("")
+var rootCommand = new CliRootCommand("")
 {
     pluginOption,
     pluginVersionOption,
