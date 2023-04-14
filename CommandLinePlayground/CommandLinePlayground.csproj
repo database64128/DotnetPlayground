@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.23212.1" />
-    <PackageReference Include="System.CommandLine.Generator" Version="2.0.0-beta4.23212.1" />
+    <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.23213.3" />
+    <PackageReference Include="System.CommandLine.Generator" Version="2.0.0-beta4.23213.3" />
   </ItemGroup>
 
 </Project>
