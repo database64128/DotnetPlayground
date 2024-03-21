@@ -20,7 +20,7 @@ public class StringParsingPreSetupBenchmark
         }
     }
 
-    public byte[] Utf8String { get; set; } = Array.Empty<byte>();
+    public byte[] Utf8String { get; set; } = [];
 
     [GlobalSetup(Target = nameof(Utf8ParserTryParse))]
     public void GlobalSetupByteArray()

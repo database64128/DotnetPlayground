@@ -85,12 +85,12 @@ public class TelegramBotCommandParsingBenchmark
         if (spacePos == -1)
         {
             command = text;
-            argument = ReadOnlySpan<char>.Empty;
+            argument = [];
         }
         else if (spacePos == text.Length - 1)
         {
             command = text[..spacePos];
-            argument = ReadOnlySpan<char>.Empty;
+            argument = [];
         }
         else
         {

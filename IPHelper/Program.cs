@@ -30,7 +30,7 @@ foreach (var i in interfaces)
     Console.WriteLine();
 }
 
-bool IsPrivate(IPAddress ip)
+static bool IsPrivate(IPAddress ip)
 {
     var ipBytes = ip.GetAddressBytes();
 

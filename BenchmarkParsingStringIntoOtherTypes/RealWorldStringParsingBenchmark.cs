@@ -18,7 +18,7 @@ public class RealWorldStringParsingBenchmark
         if (Message.Length > 31)
         {
             var timeString = Message[31..];
-            if (int.TryParse(timeString, out var timeSec))
+            if (int.TryParse(timeString, out _))
             {
                 return;
             }
@@ -62,7 +62,7 @@ public class RealWorldStringParsingBenchmark
         if (msg.Length > 31)
         {
             var timeString = msg[31..];
-            if (int.TryParse(timeString, out var timeSec))
+            if (int.TryParse(timeString, out _))
             {
                 return;
             }

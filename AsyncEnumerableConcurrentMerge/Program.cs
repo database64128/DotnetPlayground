@@ -69,8 +69,7 @@ static async Task<string> SimpleTaskAsync(CancellationToken cancellationToken = 
 /// <exception cref="ArgumentNullException"><paramref name="sources"/> is null.</exception>
 static IAsyncEnumerable<TSource> ConcurrentMerge<TSource>(IEnumerable<IAsyncEnumerable<TSource>> sources)
 {
-    if (sources == null)
-        throw new ArgumentNullException(nameof(sources));
+    ArgumentNullException.ThrowIfNull(sources);
 
     return AsyncEnumerableEx.Merge(sources.ToArray());
 }
@@ -84,8 +83,7 @@ static IAsyncEnumerable<TSource> ConcurrentMerge<TSource>(IEnumerable<IAsyncEnum
 /// <exception cref="ArgumentNullException"><paramref name="sources"/> is null.</exception>
 static IAsyncEnumerable<TSource> ConcurrentMergeNested<TSource>(IAsyncEnumerable<IAsyncEnumerable<TSource>> sources)
 {
-    if (sources == null)
-        throw new ArgumentNullException(nameof(sources));
+    ArgumentNullException.ThrowIfNull(sources);
 
     return AsyncEnumerableEx.Merge(sources.ToEnumerable().ToArray());
 }
