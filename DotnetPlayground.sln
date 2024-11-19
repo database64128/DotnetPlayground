@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsyncEnumerableConcurrentMe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecordPlayground", "RecordPlayground\RecordPlayground.csproj", "{83938D62-F81A-4A65-9480-B87992FC0C30}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegexPlayground", "RegexPlayground\RegexPlayground.csproj", "{A583F1F9-173D-4112-B1FA-239B4A2BB47F}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CsvHelperPlayground", "CsvHelperPlayground\CsvHelperPlayground.csproj", "{D8AB211E-7AD9-4EB9-B62C-A0C2DD7C1DE1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IPHelper", "IPHelper\IPHelper.csproj", "{1B48B52C-D1DC-48B1-88FA-6836E30BF12D}"
@@ -45,10 +43,6 @@ Global
 		{83938D62-F81A-4A65-9480-B87992FC0C30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83938D62-F81A-4A65-9480-B87992FC0C30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83938D62-F81A-4A65-9480-B87992FC0C30}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A583F1F9-173D-4112-B1FA-239B4A2BB47F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A583F1F9-173D-4112-B1FA-239B4A2BB47F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A583F1F9-173D-4112-B1FA-239B4A2BB47F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A583F1F9-173D-4112-B1FA-239B4A2BB47F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D8AB211E-7AD9-4EB9-B62C-A0C2DD7C1DE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D8AB211E-7AD9-4EB9-B62C-A0C2DD7C1DE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8AB211E-7AD9-4EB9-B62C-A0C2DD7C1DE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
