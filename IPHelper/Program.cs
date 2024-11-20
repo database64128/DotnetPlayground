@@ -32,15 +32,18 @@ foreach (var i in interfaces)
 
 static bool IsPrivate(IPAddress ip)
 {
-    var ipBytes = ip.GetAddressBytes();
+    Span<byte> ipBytes = stackalloc byte[16];
+    if (!ip.TryWriteBytes(ipBytes, out int bytesWritten))
+        throw new InvalidOperationException("Failed to write IP address bytes");
+    ipBytes = ipBytes[..bytesWritten];
 
     return ip.AddressFamily switch
     {
         AddressFamily.InterNetworkV6 => ip.IsIPv6LinkLocal
-                                        || ip == IPAddress.IPv6Loopback
-                                        || ip.GetAddressBytes()[0] == 0xFC
-                                        || ip.GetAddressBytes()[0] == 0xFD,
-        AddressFamily.InterNetwork => (ipBytes[0]) switch
+                                        || ip.Equals(IPAddress.IPv6Loopback)
+                                        || ipBytes[0] == 0xFC
+                                        || ipBytes[0] == 0xFD,
+        AddressFamily.InterNetwork => ipBytes[0] switch
         {
             10 or 127 => true,
             169 => ipBytes[1] == 254,
