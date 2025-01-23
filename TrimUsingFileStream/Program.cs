@@ -19,7 +19,7 @@ namespace TrimUsingFileStream
                 Id = Guid.NewGuid().ToString(),
                 Name = s,
             };
-            var rootCommand = new CliRootCommand(s);
+            var rootCommand = new RootCommand(s);
             rootCommand.SetAction(async (_, cancellationToken) =>
             {
                 await using var afs = new FileStream("test-trim-await-using-fs.json", FileMode.Create);
