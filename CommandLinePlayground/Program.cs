@@ -56,7 +56,7 @@ interactiveCommand.SetAction(
                 continue;
             }
 
-            await rootCommand.Parse(inputLine).InvokeAsync(cancellationToken);
+            await rootCommand.Parse(inputLine).InvokeAsync(cancellationToken: cancellationToken);
         }
     });
 
