@@ -1,0 +1,23 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+    <File Path="LICENSE" />
+    <File Path="nuget.config" />
+    <File Path="README.md" />
+    <File Path="renovate.json" />
+  </Folder>
+  <Folder Name="/Solution Items/.github/" />
+  <Folder Name="/Solution Items/.github/workflows/">
+    <File Path=".github/workflows/build.yml" />
+  </Folder>
+  <Project Path="AttributePolymorphism/AttributePolymorphism.csproj" />
+  <Project Path="BenchmarkNumerics/BenchmarkNumerics.csproj" />
+  <Project Path="BenchmarkParsingStringIntoOtherTypes/BenchmarkParsingStringIntoOtherTypes.csproj" />
+  <Project Path="BenchmarkStringCreateVersusStringBuilder/BenchmarkStringCreateVersusStringBuilder.csproj" />
+  <Project Path="CommandLinePlayground/CommandLinePlayground.csproj" />
+  <Project Path="ConsoleLogging/ConsoleLogging.csproj" />
+  <Project Path="CsvHelperPlayground/CsvHelperPlayground.csproj" />
+  <Project Path="IPHelper/IPHelper.csproj" />
+  <Project Path="RecordPlayground/RecordPlayground.csproj" />
+  <Project Path="TrimUsingFileStream/TrimUsingFileStream.csproj" />
+</Solution>
