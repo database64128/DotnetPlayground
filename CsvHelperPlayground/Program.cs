@@ -1,6 +1,4 @@
 ﻿using CsvHelper;
-using System.Globalization;
-using System.IO;
 
 var arr = new (int id, string name)[]
 {
@@ -9,6 +7,5 @@ var arr = new (int id, string name)[]
     (2, "ok"),
 };
 
-await using var writer = new StreamWriter("test.csv");
-await using var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
+await using var csv = CsvWriter.ToFile("test.csv");
 await csv.WriteRecordsAsync(arr);
