@@ -1,11 +1,8 @@
-﻿using System;
-using System.CommandLine;
-using System.IO;
+﻿using System.CommandLine;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace TrimUsingFileStream
 {
